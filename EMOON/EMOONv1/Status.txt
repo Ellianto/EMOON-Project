@@ -1,0 +1,7 @@
+EMOONv1	(Non-automated)
+	|-> ArduinoMegaSide	: Komunikasi serial dengan NodeMCU masih bermasalah, belum bisa di test
+	|-> NodeMCUSide		: Meneruskan input dari Blynk berhasil sampai dengan NodeMCU, masih masalah komunikasi serial dengan ArduinoMega
+	|-> BlynkIntegrationTesting	: 2 2 nya sudah berhasil, tetapi butuh perantara laptop untuk menjalankan local blynk server supaya ArduinoMega bisa berkomunikasi
+	
+	BUTUH TTL LOGIC LEVEL CONVERTER UNTUK MEMUNGKINKAN KOMUNIKASI ANTAR BOARD 3.3V DAN 5V
+	

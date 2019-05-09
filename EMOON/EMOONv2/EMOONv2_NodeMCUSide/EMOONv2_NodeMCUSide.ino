@@ -84,8 +84,8 @@
     #define pir_pin     D4   // D4 = GPIO2
 
     //Serial Comms
-    #define tx_pin      D7
-    #define rx_pin      D8
+    #define tx_pin      D7  // D7 = GPIO13
+    #define rx_pin      D8  // D8 = GPIO15
   /* END OF HARDWARE PIN DEFINITIONS */
 /* END OF DIRECTIVES SECTION */
 
@@ -93,10 +93,8 @@
   /* PRIMITIVE DATA TYPES */
     char auth[] = "07c853e56e2d4c40b8eb50e5f3caf101"; // Diambil dari aplikasi Blynk
 
-    char ssid[] = "PNJ_Hotspot";
-    char pass[] = "0217270036";
-//    char ssid[] = "Hmmmm";                            // Untuk saat ini, masih menggunakan Hotspot dari HP
-//    char pass[] = "otnaille";                         // Perlu dicari cara untuk koneksi ke WiFi luar
+    char ssid[] = "Hmmmm";                            // Untuk saat ini, masih menggunakan Hotspot dari HP
+    char pass[] = "otnaille";                         // Perlu dicari cara untuk koneksi ke WiFi luar
     
     bool automate = false;                            // Flag yang digunakan untuk menentukan mode kerja sistem
     bool door_locked = false;                         // Flag yang menandakan terkuncinya pintu
@@ -279,6 +277,7 @@
       Blynk.virtualWrite(v_brightness_pin, light_state);
       Blynk.virtualWrite(v_gas_pin, gas_state);
       logMovement();  // Dan ke terminal
+      yield();
       
       sendCommands();
 
@@ -396,7 +395,7 @@
        
       Blynk.begin(auth, ssid, pass);          
       setSyncInterval(10 * 60);               // RTC akan sync setiap 10 menit
-      timer.setInterval(1000L, sendUptime);   // Function sendUpTime akan dijalankan setiap 1 detik
+      timer.setInterval(3000L, sendUptime);   // Function sendUpTime akan dijalankan setiap 1 detik
   
       dht22.begin();                          // Inisiasi awal object DHT
       pir_log.clear();                        // Membersihkan Widget Terminal di aplikasi Blynk
